@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { useAuth } from "@/lib/auth-context"
-import WalletModal from "@/components/wallet-modal"
+import { useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/lib/auth-context";
+import WalletModal from "@/components/wallet-modal";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [showWallet, setShowWallet] = useState(false)
-  const { user, isLoggedIn, logout } = useAuth()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showWallet, setShowWallet] = useState(false);
+  const { user, isLoggedIn, logout } = useAuth();
 
   return (
     <>
@@ -18,19 +18,30 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center gap-2">
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold">HS</span>
+                <span className="text-primary-foreground font-bold">FH</span>
               </div>
-              <span className="text-xl font-bold hidden sm:inline">HigherStream</span>
+              <span className="text-xl font-bold hidden sm:inline">
+                FreelanceHub
+              </span>
             </Link>
 
             <div className="hidden md:flex items-center gap-8">
-              <Link href="/marketplace" className="text-foreground/80 hover:text-foreground transition">
+              <Link
+                href="/marketplace"
+                className="text-foreground/80 hover:text-foreground transition"
+              >
                 Browse
               </Link>
-              <Link href="/how-it-works" className="text-foreground/80 hover:text-foreground transition">
+              <Link
+                href="/how-it-works"
+                className="text-foreground/80 hover:text-foreground transition"
+              >
                 How it works
               </Link>
-              <Link href="/pricing" className="text-foreground/80 hover:text-foreground transition">
+              <Link
+                href="/pricing"
+                className="text-foreground/80 hover:text-foreground transition"
+              >
                 Pricing
               </Link>
             </div>
@@ -47,16 +58,32 @@ export default function Navbar() {
               {isLoggedIn && user ? (
                 <>
                   <Link href="/messages">
-                    <Button variant="outline" className="border-primary/30 bg-transparent">
+                    <Button
+                      variant="outline"
+                      className="border-primary/30 bg-transparent"
+                    >
                       Messages
                     </Button>
                   </Link>
-                  <Link href={user.role === "client" ? "/client-dashboard" : "/freelancer-dashboard"}>
-                    <Button variant="outline" className="border-primary/30 bg-transparent">
+                  <Link
+                    href={
+                      user.role === "client"
+                        ? "/client-dashboard"
+                        : "/freelancer-dashboard"
+                    }
+                  >
+                    <Button
+                      variant="outline"
+                      className="border-primary/30 bg-transparent"
+                    >
                       Dashboard
                     </Button>
                   </Link>
-                  <Button variant="outline" onClick={logout} className="border-primary/30 bg-transparent">
+                  <Button
+                    variant="outline"
+                    onClick={logout}
+                    className="border-primary/30 bg-transparent"
+                  >
                     Sign Out
                   </Button>
                 </>
@@ -77,5 +104,5 @@ export default function Navbar() {
 
       <WalletModal isOpen={showWallet} onClose={() => setShowWallet(false)} />
     </>
-  )
+  );
 }

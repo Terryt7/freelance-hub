@@ -1,8 +1,8 @@
-# HigherStream Architecture Guide
+# FreelanceHub Architecture Guide
 
 ## System Overview
 
-HigherStream is a client-side freelance marketplace that demonstrates modern Next.js patterns without requiring a backend API.
+FreelanceHub is a client-side freelance marketplace that demonstrates modern Next.js patterns without requiring a backend API.
 
 ## Component Hierarchy
 

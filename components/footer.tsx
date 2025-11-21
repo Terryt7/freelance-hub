@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import Link from "next/link"
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -8,8 +8,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="font-bold text-lg mb-4">HigherStream</h3>
-            <p className="text-foreground/60 text-sm">Connecting talent with opportunity</p>
+            <h3 className="font-bold text-lg mb-4">FreelanceHub</h3>
+            <p className="text-foreground/60 text-sm">
+              Connecting talent with opportunity
+            </p>
           </div>
 
           <div>
@@ -77,9 +79,9 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-border pt-8 text-center text-foreground/60 text-sm">
-          <p>© 2025 HigherStream. All rights reserved.</p>
+          <p>© 2025 FreelanceHub. All rights reserved.</p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

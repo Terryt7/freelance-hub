@@ -1,6 +1,6 @@
-# HigherStream - Freelance Marketplace MVP
+# FreelanceHub - Freelance Marketplace MVP
 
-HigherStream is a modern, web3-inspired freelance marketplace built with Next.js and React. It connects clients with talented freelancers for various services including design, development, content creation, and more.
+FreelanceHub is a modern, web3-inspired freelance marketplace built with Next.js and React. It connects clients with talented freelancers for various services including design, development, content creation, and more.
 
 ## Features
 

@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { Card } from "@/components/ui/card"
+import { Card } from "@/components/ui/card";
 
 const features = [
   {
@@ -23,13 +23,15 @@ const features = [
     title: "Quality Guaranteed",
     description: "Get revisions until you are satisfied",
   },
-]
+];
 
 export default function WhyChooseUs() {
   return (
     <section className="py-20 px-4 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold mb-4 text-center">Why Choose HigherStream?</h2>
+        <h2 className="text-4xl font-bold mb-4 text-center">
+          Why Choose FreelanceHub?
+        </h2>
         <p className="text-center text-foreground/70 mb-12 max-w-2xl mx-auto">
           We make hiring talents simple, transparent, and secure
         </p>
@@ -48,5 +50,5 @@ export default function WhyChooseUs() {
         </div>
       </div>
     </section>
-  )
+  );
 }

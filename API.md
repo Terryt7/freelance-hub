@@ -2,7 +2,7 @@
 
 ## LocalStorageManager
 
-The `LocalStorageManager` handles all data persistence for HigherStream.
+The `LocalStorageManager` handles all data persistence for FreelanceHub.
 
 **File**: `lib/local-storage-manager.ts`
 
@@ -318,7 +318,7 @@ interface Conversation {
 ## Storage Limits
 
 - **Total localStorage**: ~5-10MB per domain
-- **Key naming**: `hs_` prefix for HigherStream keys
+- **Key naming**: `hs_` prefix for FreelanceHub keys
 - **String serialization**: All data converted to JSON strings
 
 ## Best Practices

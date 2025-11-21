@@ -1,42 +1,42 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import localStorageManager from "@/lib/local-storage-manager"
+import { useState, useEffect } from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import localStorageManager from "@/lib/local-storage-manager";
 
 interface WalletModalProps {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export default function WalletModal({ isOpen, onClose }: WalletModalProps) {
-  const [connected, setConnected] = useState(false)
+  const [connected, setConnected] = useState(false);
 
   useEffect(() => {
-    const walletState = localStorageManager.loadWalletState()
-    setConnected(walletState.connected)
-  }, [])
+    const walletState = localStorageManager.loadWalletState();
+    setConnected(walletState.connected);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
       localStorageManager.saveWalletState({
         connected,
         address: connected ? "0x742d35Cc6634C0532925a3b844Bc0e7b3C7B3C" : null,
-      })
+      });
     }
-  }, [connected, isOpen])
+  }, [connected, isOpen]);
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   const handleConnect = () => {
-    setConnected(true)
-  }
+    setConnected(true);
+  };
 
   const handleDisconnect = () => {
-    setConnected(false)
-    localStorageManager.saveWalletState({ connected: false, address: null })
-  }
+    setConnected(false);
+    localStorageManager.saveWalletState({ connected: false, address: null });
+  };
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
@@ -47,16 +47,27 @@ export default function WalletModal({ isOpen, onClose }: WalletModalProps) {
 
           {!connected ? (
             <>
-              <p className="text-foreground/70 mb-6">Connect your Web3 wallet to access blockchain features</p>
+              <p className="text-foreground/70 mb-6">
+                Connect your Web3 wallet to access blockchain features
+              </p>
 
               <div className="space-y-2 mb-6">
-                <Button className="w-full bg-primary hover:bg-primary/90 py-6" onClick={handleConnect}>
+                <Button
+                  className="w-full bg-primary hover:bg-primary/90 py-6"
+                  onClick={handleConnect}
+                >
                   MetaMask
                 </Button>
-                <Button variant="outline" className="w-full border-primary/30 py-6 bg-transparent">
+                <Button
+                  variant="outline"
+                  className="w-full border-primary/30 py-6 bg-transparent"
+                >
                   WalletConnect
                 </Button>
-                <Button variant="outline" className="w-full border-primary/30 py-6 bg-transparent">
+                <Button
+                  variant="outline"
+                  className="w-full border-primary/30 py-6 bg-transparent"
+                >
                   Coinbase Wallet
                 </Button>
               </div>
@@ -67,7 +78,9 @@ export default function WalletModal({ isOpen, onClose }: WalletModalProps) {
                 <p className="text-green-400 font-semibold mb-2">✓ Connected</p>
                 <p className="text-sm text-foreground/70">0x742d...7B3C</p>
               </div>
-              <p className="text-foreground/70 mb-6">Your wallet is now connected to HigherStream</p>
+              <p className="text-foreground/70 mb-6">
+                Your wallet is now connected to FreelanceHub
+              </p>
               <div className="flex gap-2">
                 <Button
                   variant="outline"
@@ -76,7 +89,10 @@ export default function WalletModal({ isOpen, onClose }: WalletModalProps) {
                 >
                   Disconnect
                 </Button>
-                <Button onClick={onClose} className="flex-1 bg-primary hover:bg-primary/90">
+                <Button
+                  onClick={onClose}
+                  className="flex-1 bg-primary hover:bg-primary/90"
+                >
                   Done
                 </Button>
               </div>
@@ -85,5 +101,5 @@ export default function WalletModal({ isOpen, onClose }: WalletModalProps) {
         </div>
       </Card>
     </div>
-  )
+  );
 }

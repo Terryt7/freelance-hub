@@ -1,9 +1,9 @@
-# HigherStream Usage Guide
+# FreelanceHub Usage Guide
 
 ## Getting Started
 
 ### 1. Access the Platform
-Navigate to the app home page. You'll see the landing page with an overview of HigherStream.
+Navigate to the app home page. You'll see the landing page with an overview of FreelanceHub.
 
 ### 2. Create an Account
 - Click "Register" in the navbar

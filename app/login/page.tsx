@@ -1,48 +1,48 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card } from "@/components/ui/card"
-import { useAuth } from "@/lib/auth-context"
-import Navbar from "@/components/navbar"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
+import { useAuth } from "@/lib/auth-context";
+import Navbar from "@/components/navbar";
 
 export default function LoginPage() {
-  const router = useRouter()
-  const { login } = useAuth()
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
+  const router = useRouter();
+  const { login } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError("")
-    setLoading(true)
+    e.preventDefault();
+    setError("");
+    setLoading(true);
 
     try {
-      await login(email, password)
-      router.push("/client-dashboard")
+      await login(email, password);
+      router.push("/client-dashboard");
     } catch (err) {
-      setError((err as Error).message || "Login failed")
+      setError((err as Error).message || "Login failed");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   const fillClientDemo = () => {
-    setEmail("client@demo.com")
-    setPassword("demo123")
-  }
+    setEmail("client@demo.com");
+    setPassword("demo123");
+  };
 
   const fillFreelancerDemo = () => {
-    setEmail("freelancer@demo.com")
-    setPassword("demo123")
-  }
+    setEmail("freelancer@demo.com");
+    setPassword("demo123");
+  };
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -51,7 +51,9 @@ export default function LoginPage() {
       <div className="flex items-center justify-center min-h-[calc(100vh-64px)] px-4">
         <Card className="w-full max-w-md bg-card border-primary/20 p-8 glow-border animate-slide-up">
           <h1 className="text-3xl font-bold mb-2 text-center">Sign In</h1>
-          <p className="text-center text-foreground/60 mb-8">Welcome back to HigherStream</p>
+          <p className="text-center text-foreground/60 mb-8">
+            Welcome back to FreelanceHub
+          </p>
 
           {error && (
             <div className="mb-4 p-4 bg-destructive/20 border border-destructive rounded text-destructive text-sm">
@@ -94,7 +96,9 @@ export default function LoginPage() {
           </form>
 
           <div className="space-y-2 mb-6">
-            <p className="text-xs text-foreground/50 text-center mb-3">Demo Credentials:</p>
+            <p className="text-xs text-foreground/50 text-center mb-3">
+              Demo Credentials:
+            </p>
             <Button
               type="button"
               variant="outline"
@@ -116,7 +120,10 @@ export default function LoginPage() {
           <div className="text-center">
             <p className="text-foreground/60 text-sm">
               Don't have an account?{" "}
-              <Link href="/register" className="text-primary hover:text-primary/80">
+              <Link
+                href="/register"
+                className="text-primary hover:text-primary/80"
+              >
                 Register here
               </Link>
             </p>
@@ -124,5 +131,5 @@ export default function LoginPage() {
         </Card>
       </div>
     </main>
-  )
+  );
 }
