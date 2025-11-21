@@ -25,8 +25,15 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      await login(email, password);
-      router.push("/client-dashboard");
+      const user = await login(email, password);
+
+      if (user.role === "client") {
+        router.push("/client-dashboard");
+      } else if (user.role === "freelancer") {
+        router.push("/freelancer-dashboard");
+      } else {
+        setError("Unknown user role");
+      }
     } catch (err) {
       setError((err as Error).message || "Login failed");
     } finally {
