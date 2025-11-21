@@ -1,23 +1,22 @@
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-import { HeroSection } from "@/components/landing/hero-section"
-import { ServiceCategories } from "@/components/landing/service-categories"
-import { FeaturedServices } from "@/components/landing/featured-services"
-import { TrustSection } from "@/components/landing/trust-section"
-import { CTASection } from "@/components/landing/cta-section"
+"use client"
+import Navbar from "@/components/navbar"
+import Hero from "@/components/hero"
+import CategoriesGrid from "@/components/categories-grid"
+import FeaturedServices from "@/components/featured-services"
+import WhyChooseUs from "@/components/why-choose-us"
+import Testimonials from "@/components/testimonials"
+import Footer from "@/components/footer"
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <HeroSection />
-        <ServiceCategories />
-        <FeaturedServices />
-        <TrustSection />
-        <CTASection />
-      </main>
+    <main className="min-h-screen bg-background text-foreground">
+      <Navbar />
+      <Hero />
+      <CategoriesGrid />
+      <FeaturedServices />
+      <WhyChooseUs />
+      <Testimonials />
       <Footer />
-    </div>
+    </main>
   )
 }
